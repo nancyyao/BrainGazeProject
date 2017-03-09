@@ -40,6 +40,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -103,13 +104,37 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Graphics\Brain1.jpg" />
+    <Resource Include="Graphics\Brain10.jpg" />
+    <Resource Include="Graphics\Brain11.jpg" />
+    <Resource Include="Graphics\Brain12.jpg" />
+    <Resource Include="Graphics\Brain13.jpg" />
+    <Resource Include="Graphics\Brain2.jpg" />
+    <Resource Include="Graphics\Brain3.jpg" />
+    <Resource Include="Graphics\Brain4.jpg" />
+    <Resource Include="Graphics\Brain5.jpg" />
+    <Resource Include="Graphics\Brain6.jpg" />
+    <Resource Include="Graphics\Brain7.jpg" />
+    <Resource Include="Graphics\Brain8.jpg" />
+    <Resource Include="Graphics\Brain9.jpg" />
+    <None Include="images\Brain1.jpg" />
+    <None Include="images\Brain2.jpg" />
+    <None Include="images\Brain3.jpg" />
+    <None Include="images\Brain4.jpg" />
+    <None Include="images\Brain5.jpg" />
+    <None Include="images\Brain6.jpg" />
+    <None Include="images\Brain7.jpg" />
+    <None Include="images\Brain8.jpg" />
+    <None Include="images\Brain9.jpg" />
+    <None Include="images\Brain10.jpg" />
+    <None Include="images\Brain11.jpg" />
+    <None Include="images\Brain12.jpg" />
+    <None Include="images\Brain13.jpg" />
     <Content Include="Tobii.EyeX.Client.Net20.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Graphics\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
