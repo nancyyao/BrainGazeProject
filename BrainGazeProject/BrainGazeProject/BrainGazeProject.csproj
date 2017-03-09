@@ -118,6 +118,16 @@
     <Resource Include="Brain7.jpg" />
     <Resource Include="Brain8.jpg" />
     <Resource Include="Brain9.jpg" />
+    <Resource Include="optictract\lefthemifield.jpg" />
+    <Resource Include="optictract\leftopticnerve.jpg" />
+    <Resource Include="optictract\leftopticradiations.jpg" />
+    <Resource Include="optictract\leftvisualcortex.jpg" />
+    <Resource Include="optictract\OpticTract.png" />
+    <Resource Include="optictract\OpticTractkey.png" />
+    <Resource Include="optictract\righthemifield.jpg" />
+    <Resource Include="optictract\rightopticnerve.jpg" />
+    <Resource Include="optictract\rightopticradiations.jpg" />
+    <Resource Include="optictract\rightvisualcortex.jpg" />
     <Content Include="Tobii.EyeX.Client.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
