@@ -4,13 +4,130 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BrainGazeProject"
+        xmlns:eyeX="clr-namespace:EyeXFramework.Wpf;assembly=EyeXFramework"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <Style x:Key="EyeXGazeAwareElement" TargetType="FrameworkElement">
+            <Setter Property="eyeX:Behavior.GazeAware" Value="True" />
+            <Setter Property="eyeX:Behavior.GazeAwareDelay" Value="50" />
+        </Style>
+        
+        <Style x:Key="EyeXGazeAwarePanel" BasedOn="{StaticResource EyeXGazeAwareElement}" TargetType="Rectangle">
+            <Style.Triggers>
+                <Trigger Property="eyeX:Behavior.HasGaze" Value="True">
+                    <Setter Property="Effect">
+                        <Setter.Value>
+                            <DropShadowEffect BlurRadius="35" Color="DarkGoldenrod" ShadowDepth="0"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Canvas>
+        <TextBlock Panel.ZIndex="750" Name="Receive_Status_Text" Foreground="Black" Background="Transparent" Canvas.Right="30" Canvas.Top="30" MaxWidth="266.67" Text="Receiving Data" TextAlignment="Right" FontSize="18" HorizontalAlignment="Center" Visibility="Visible"/>
+        <TextBlock Panel.ZIndex="750" Name="Share_Status_Text" Foreground="Black" Background="Transparent" Canvas.Right="30" Canvas.Top="80" MaxWidth="266.67" Text="Sharing Data" TextAlignment="Right" FontSize="18" HorizontalAlignment="Center" Visibility="Visible"/>
+        <TextBlock Panel.ZIndex="750" Name="Timer" Foreground="Red" Background="Transparent" Canvas.Right="30" Canvas.Top="255" TextAlignment="Right" FontSize="18"/>
+        <TextBlock Panel.ZIndex="800" Foreground="Red" Background="Transparent" Canvas.Right="30" Canvas.Bottom="40" Text="Image 1/4" TextAlignment="Right" FontSize="40" Visibility="Visible"/>
+        <TextBlock Name="test" Canvas.Right="20" Canvas.Top="300" FontSize="15"></TextBlock>
+        <Ellipse Name="track0" Visibility="Hidden" Opacity="1" Panel.ZIndex="800" Fill="Purple" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0"></Ellipse>
+        <Ellipse Name="track1" Visibility="Visible" Opacity="1" Panel.ZIndex="800" Fill="Black" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0"></Ellipse>
+        <Line Name="trackLine" Visibility="Hidden" Opacity="1" Panel.ZIndex="800" Stroke="Black" StrokeThickness="1" X1="0" X2="0" Y1="0" Y2="0"></Line>
+        <Ellipse Name="otrack0" Visibility="Hidden" Opacity="1" Panel.ZIndex="800" Fill="Red" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0"></Ellipse>
+        <Ellipse Name="otrack1" Visibility="Hidden" Opacity="1" Panel.ZIndex="800" Fill="Black" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0"></Ellipse>
+        <Line Name="otrackLine" Visibility="Hidden" Opacity="1" Panel.ZIndex="800" Stroke="Black" StrokeThickness="1" X1="0" X2="0" Y1="0" Y2="0"></Line>
+        <Ellipse Name="doubleHighlight" Visibility="Hidden" Opacity=".7" Panel.ZIndex="800" StrokeThickness="5" Stroke="DarkBlue" Width="50" Height="50" Canvas.Left="0" Canvas.Top="0"></Ellipse>
+        <Button x:Name="GazeButton"
+                Panel.ZIndex="800"
+                Content="Turn on Gazepath"
+                Canvas.Right="30"
+                Canvas.Top="130"
+                HorizontalAlignment="Center"
+                Margin="10,10,0,0"
+                VerticalAlignment="Top"
+                Width="75"
+                Click="gazeButton"/>
+        <Button x:Name="FixButton"
+                Panel.ZIndex="800"
+                Content="Turn on Fixation"
+                Canvas.Right="30"
+                Canvas.Top="160"
+                HorizontalAlignment="Center"
+                Margin="10,10,0,0"
+                VerticalAlignment="Top"
+                Visibility="Visible"
+                Click="fixButton"/>
         <Rectangle Name="bg" Height="750" Width="1000">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="Brain.png"></ImageBrush>
             </Rectangle.Fill>
         </Rectangle>
+        <Rectangle Name="b1" Visibility="Hidden" Height="750" Width="1000">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Brain1.jpg"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="b2" Visibility="Hidden" Height="750" Width="1000">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Brain2.jpg"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="b3" Visibility="Hidden" Height="750" Width="1000">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Brain3.jpg"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="b4" Visibility="Hidden" Height="750" Width="1000">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Brain4.jpg"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="b5" Visibility="Hidden" Height="750" Width="1000">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Brain5.jpg"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="b6" Visibility="Hidden" Height="750" Width="1000">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Brain6.jpg"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="b7" Visibility="Hidden" Height="750" Width="1000">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Brain7.jpg"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="b8" Visibility="Hidden" Height="750" Width="1000">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Brain8.jpg"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="b9" Visibility="Hidden" Height="750" Width="1000">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Brain9.jpg"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="b10" Visibility="Hidden" Height="750" Width="1000">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Brain10.jpg"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="b11" Visibility="Hidden" Height="750" Width="1000">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Brain11.jpg"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="b12" Visibility="Hidden" Height="750" Width="1000">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Brain12.jpg"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="b13" Visibility="Hidden" Height="750" Width="1000">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Brain13.jpg"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="b1t" Style="{StaticResource EyeXGazeAwarePanel}" Fill="Black" Height="318" Width="356" Canvas.Left="271" Canvas.Top="190"></Rectangle>
     </Canvas>
 </Window>

@@ -117,7 +117,7 @@ namespace BrainGazeProject
                 Share_Status_Text.Visibility = Visibility.Visible;
                 communication_started_Sender = false;
             }
-            //setupTimer();
+            setupTimer();
             //setupTask();
         }
         private void setupTimer()
@@ -267,6 +267,18 @@ namespace BrainGazeProject
             }
 
             doubleTrack();
+            highlight();
+        }
+
+        private void highlight() {
+            b1t.SetGazeAware(true);
+            if (b1t.GetHasGaze())
+            {
+                b1t.Opacity = .5;
+            }
+            else {
+                b1t.Opacity = 1;
+            }
         }
 
         #region logData

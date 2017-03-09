@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("tobii.eyex.client.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("tobii.eyex.client.net20.dll")]
 
 

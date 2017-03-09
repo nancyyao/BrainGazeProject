@@ -40,6 +40,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -104,6 +105,22 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Brain.png" />
+    <Resource Include="Brain1.jpg" />
+    <Resource Include="Brain10.jpg" />
+    <Resource Include="Brain11.jpg" />
+    <Resource Include="Brain12.jpg" />
+    <Resource Include="Brain13.jpg" />
+    <Resource Include="Brain2.jpg" />
+    <Resource Include="Brain3.jpg" />
+    <Resource Include="Brain4.jpg" />
+    <Resource Include="Brain5.jpg" />
+    <Resource Include="Brain6.jpg" />
+    <Resource Include="Brain7.jpg" />
+    <Resource Include="Brain8.jpg" />
+    <Resource Include="Brain9.jpg" />
+    <Content Include="Tobii.EyeX.Client.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Tobii.EyeX.Client.Net20.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
