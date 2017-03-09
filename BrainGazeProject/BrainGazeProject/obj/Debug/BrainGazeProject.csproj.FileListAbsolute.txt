@@ -1,0 +1,2 @@
+C:\Users\Master\Documents\Visual Studio 2015\Projects\BrainGazeProject\BrainGazeProject\bin\Debug\BrainGazeProject.exe.config
+C:\Users\Master\Documents\GitHub\BrainGazeProject\BrainGazeProject\BrainGazeProject\bin\Debug\BrainGazeProject.exe.config
