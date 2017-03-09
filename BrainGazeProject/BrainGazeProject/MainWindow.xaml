@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:BrainGazeProject"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+    <Canvas>
+        <Rectangle Name="bg" Height="750" Width="1000">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Brain.png"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+    </Canvas>
 </Window>
