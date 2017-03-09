@@ -1,2 +1,19 @@
 C:\Users\Master\Documents\Visual Studio 2015\Projects\BrainGazeProject\BrainGazeProject\bin\Debug\BrainGazeProject.exe.config
 C:\Users\Master\Documents\GitHub\BrainGazeProject\BrainGazeProject\BrainGazeProject\bin\Debug\BrainGazeProject.exe.config
+C:\Users\Master\Documents\GitHub\BrainGazeProject\BrainGazeProject\BrainGazeProject\bin\Debug\Tobii.EyeX.Client.Net20.dll
+C:\Users\Master\Documents\GitHub\BrainGazeProject\BrainGazeProject\BrainGazeProject\bin\Debug\BrainGazeProject.exe
+C:\Users\Master\Documents\GitHub\BrainGazeProject\BrainGazeProject\BrainGazeProject\bin\Debug\BrainGazeProject.pdb
+C:\Users\Master\Documents\GitHub\BrainGazeProject\BrainGazeProject\BrainGazeProject\bin\Debug\EyeXFramework.dll
+C:\Users\Master\Documents\GitHub\BrainGazeProject\BrainGazeProject\BrainGazeProject\bin\Debug\EyeXFramework.pdb
+C:\Users\Master\Documents\GitHub\BrainGazeProject\BrainGazeProject\BrainGazeProject\obj\Debug\BrainGazeProject.csprojResolveAssemblyReference.cache
+C:\Users\Master\Documents\GitHub\BrainGazeProject\BrainGazeProject\BrainGazeProject\obj\Debug\MainWindow.g.cs
+C:\Users\Master\Documents\GitHub\BrainGazeProject\BrainGazeProject\BrainGazeProject\obj\Debug\App.g.cs
+C:\Users\Master\Documents\GitHub\BrainGazeProject\BrainGazeProject\BrainGazeProject\obj\Debug\BrainGazeProject_Content.g.cs
+C:\Users\Master\Documents\GitHub\BrainGazeProject\BrainGazeProject\BrainGazeProject\obj\Debug\BrainGazeProject_MarkupCompile.cache
+C:\Users\Master\Documents\GitHub\BrainGazeProject\BrainGazeProject\BrainGazeProject\obj\Debug\BrainGazeProject_MarkupCompile.lref
+C:\Users\Master\Documents\GitHub\BrainGazeProject\BrainGazeProject\BrainGazeProject\obj\Debug\MainWindow.baml
+C:\Users\Master\Documents\GitHub\BrainGazeProject\BrainGazeProject\BrainGazeProject\obj\Debug\BrainGazeProject.g.resources
+C:\Users\Master\Documents\GitHub\BrainGazeProject\BrainGazeProject\BrainGazeProject\obj\Debug\BrainGazeProject.Properties.Resources.resources
+C:\Users\Master\Documents\GitHub\BrainGazeProject\BrainGazeProject\BrainGazeProject\obj\Debug\BrainGazeProject.csproj.GenerateResource.Cache
+C:\Users\Master\Documents\GitHub\BrainGazeProject\BrainGazeProject\BrainGazeProject\obj\Debug\BrainGazeProject.exe
+C:\Users\Master\Documents\GitHub\BrainGazeProject\BrainGazeProject\BrainGazeProject\obj\Debug\BrainGazeProject.pdb
