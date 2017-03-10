@@ -13,9 +13,8 @@
             <Setter Property="eyeX:Behavior.GazeAwareDelay" Value="50" />
             <EventSetter Event="eyeX:Behavior.HasGazeChanged" Handler="OnHasGazeChanged" />
         </Style>
-
         <Style x:Key="EyeXGazeAwarePanel" BasedOn="{StaticResource EyeXGazeAwareElement}" TargetType="Rectangle">
-            <Style.Triggers>
+            <!--<Style.Triggers>
                 <Trigger Property="eyeX:Behavior.HasGaze" Value="True">
                     <Setter Property="Effect">
                         <Setter.Value>
@@ -23,7 +22,7 @@
                         </Setter.Value>
                     </Setter>
                 </Trigger>
-            </Style.Triggers>
+            </Style.Triggers>-->
         </Style>
     </Window.Resources>
     <Canvas>
