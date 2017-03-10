@@ -63,6 +63,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -75,6 +79,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Window1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -104,20 +112,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Brain.png" />
-    <Resource Include="Brain1.jpg" />
-    <Resource Include="Brain10.jpg" />
-    <Resource Include="Brain11.jpg" />
-    <Resource Include="Brain12.jpg" />
-    <Resource Include="Brain13.jpg" />
-    <Resource Include="Brain2.jpg" />
-    <Resource Include="Brain3.jpg" />
-    <Resource Include="Brain4.jpg" />
-    <Resource Include="Brain5.jpg" />
-    <Resource Include="Brain6.jpg" />
-    <Resource Include="Brain7.jpg" />
-    <Resource Include="Brain8.jpg" />
-    <Resource Include="Brain9.jpg" />
     <Resource Include="optictract\lefthemifield.jpg" />
     <Resource Include="optictract\leftopticnerve.jpg" />
     <Resource Include="optictract\leftopticradiations.jpg" />
@@ -128,6 +122,22 @@
     <Resource Include="optictract\rightopticnerve.jpg" />
     <Resource Include="optictract\rightopticradiations.jpg" />
     <Resource Include="optictract\rightvisualcortex.jpg" />
+    <Resource Include="images\Brain.png" />
+    <Resource Include="images\Brain1.jpg" />
+    <Resource Include="images\Brain2.jpg" />
+    <Resource Include="images\Brain3.jpg" />
+    <Resource Include="images\Brain4.jpg" />
+    <Resource Include="images\Brain5.jpg" />
+    <Resource Include="images\Brain6.jpg" />
+    <Resource Include="images\Brain7.jpg" />
+    <Resource Include="images\Brain8.jpg" />
+    <Resource Include="images\Brain9.jpg" />
+    <Resource Include="images\Brain10.jpg" />
+    <Resource Include="images\Brain11.jpg" />
+    <Resource Include="images\Brain12.jpg" />
+    <Resource Include="images\Brain13.jpg" />
+    <Resource Include="optictract\OpticTractdim.jpg" />
+    <Resource Include="images\BrainBW.jpg" />
     <Content Include="Tobii.EyeX.Client.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

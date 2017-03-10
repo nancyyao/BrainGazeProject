@@ -6,13 +6,14 @@
         xmlns:local="clr-namespace:BrainGazeProject"
         xmlns:eyeX="clr-namespace:EyeXFramework.Wpf;assembly=EyeXFramework"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="700" Width="1000">
     <Window.Resources>
         <Style x:Key="EyeXGazeAwareElement" TargetType="FrameworkElement">
             <Setter Property="eyeX:Behavior.GazeAware" Value="True" />
             <Setter Property="eyeX:Behavior.GazeAwareDelay" Value="50" />
+            <EventSetter Event="eyeX:Behavior.HasGazeChanged" Handler="OnHasGazeChanged" />
         </Style>
-        
+
         <Style x:Key="EyeXGazeAwarePanel" BasedOn="{StaticResource EyeXGazeAwareElement}" TargetType="Rectangle">
             <Style.Triggers>
                 <Trigger Property="eyeX:Behavior.HasGaze" Value="True">
@@ -29,7 +30,6 @@
         <TextBlock Panel.ZIndex="750" Name="Receive_Status_Text" Foreground="Black" Background="Transparent" Canvas.Right="30" Canvas.Top="30" MaxWidth="266.67" Text="Receiving Data" TextAlignment="Right" FontSize="18" HorizontalAlignment="Center" Visibility="Visible"/>
         <TextBlock Panel.ZIndex="750" Name="Share_Status_Text" Foreground="Black" Background="Transparent" Canvas.Right="30" Canvas.Top="80" MaxWidth="266.67" Text="Sharing Data" TextAlignment="Right" FontSize="18" HorizontalAlignment="Center" Visibility="Visible"/>
         <TextBlock Panel.ZIndex="750" Name="Timer" Foreground="Red" Background="Transparent" Canvas.Right="30" Canvas.Top="255" TextAlignment="Right" FontSize="18"/>
-        <TextBlock Panel.ZIndex="800" Foreground="Red" Background="Transparent" Canvas.Right="30" Canvas.Bottom="40" Text="Image 1/4" TextAlignment="Right" FontSize="40" Visibility="Visible"/>
         <TextBlock Name="test" Canvas.Right="20" Canvas.Top="300" FontSize="15"></TextBlock>
         <Ellipse Name="track0" Visibility="Hidden" Opacity="1" Panel.ZIndex="800" Fill="Purple" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0"></Ellipse>
         <Ellipse Name="track1" Visibility="Visible" Opacity="1" Panel.ZIndex="800" Fill="Black" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0"></Ellipse>
@@ -58,76 +58,249 @@
                 VerticalAlignment="Top"
                 Visibility="Visible"
                 Click="fixButton"/>
+        <Button x:Name="HighlightButton"
+                Panel.ZIndex="800"
+                Content="Turn on Highlight"
+                Canvas.Right="30"
+                Canvas.Top="190"
+                HorizontalAlignment="Center"
+                Margin="10,10,0,0"
+                VerticalAlignment="Top"
+                Visibility="Visible"
+                Click="highlightButton"/>
+        
         <Rectangle Name="bg" Height="750" Width="1000">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Brain.png"></ImageBrush>
+                <ImageBrush ImageSource="images/Brain.png"></ImageBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle Name="b1" Visibility="Hidden" Height="750" Width="1000">
+        <Rectangle Name="bg_highlight" Visibility="Hidden"  Height="750" Width="1000">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Brain1.jpg"></ImageBrush>
+                <ImageBrush ImageSource="images/BrainBW.jpg"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        
+        <Rectangle Name="b1" Panel.ZIndex="10" Visibility="Hidden" Height="750" Width="1000">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="images/Brain1.jpg"></ImageBrush>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Name="b2" Visibility="Hidden" Height="750" Width="1000">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Brain2.jpg"></ImageBrush>
+                <ImageBrush ImageSource="images/Brain2.jpg"></ImageBrush>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Name="b3" Visibility="Hidden" Height="750" Width="1000">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Brain3.jpg"></ImageBrush>
+                <ImageBrush ImageSource="images/Brain3.jpg"></ImageBrush>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Name="b4" Visibility="Hidden" Height="750" Width="1000">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Brain4.jpg"></ImageBrush>
+                <ImageBrush ImageSource="images/Brain4.jpg"></ImageBrush>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Name="b5" Visibility="Hidden" Height="750" Width="1000">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Brain5.jpg"></ImageBrush>
+                <ImageBrush ImageSource="images/Brain5.jpg"></ImageBrush>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Name="b6" Visibility="Hidden" Height="750" Width="1000">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Brain6.jpg"></ImageBrush>
+                <ImageBrush ImageSource="images/Brain6.jpg"></ImageBrush>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Name="b7" Visibility="Hidden" Height="750" Width="1000">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Brain7.jpg"></ImageBrush>
+                <ImageBrush ImageSource="images/Brain7.jpg"></ImageBrush>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Name="b8" Visibility="Hidden" Height="750" Width="1000">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Brain8.jpg"></ImageBrush>
+                <ImageBrush ImageSource="images/Brain8.jpg"></ImageBrush>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Name="b9" Visibility="Hidden" Height="750" Width="1000">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Brain9.jpg"></ImageBrush>
+                <ImageBrush ImageSource="images/Brain9.jpg"></ImageBrush>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Name="b10" Visibility="Hidden" Height="750" Width="1000">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Brain10.jpg"></ImageBrush>
+                <ImageBrush ImageSource="images/Brain10.jpg"></ImageBrush>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Name="b11" Visibility="Hidden" Height="750" Width="1000">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Brain11.jpg"></ImageBrush>
+                <ImageBrush ImageSource="images/Brain11.jpg"></ImageBrush>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Name="b12" Visibility="Hidden" Height="750" Width="1000">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Brain12.jpg"></ImageBrush>
+                <ImageBrush ImageSource="images/Brain12.jpg"></ImageBrush>
             </Rectangle.Fill>
         </Rectangle>
         <Rectangle Name="b13" Visibility="Hidden" Height="750" Width="1000">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="Brain13.jpg"></ImageBrush>
+                <ImageBrush ImageSource="images/Brain13.jpg"></ImageBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle Name="b1t" Style="{StaticResource EyeXGazeAwarePanel}" Fill="Black" Height="318" Width="356" Canvas.Left="271" Canvas.Top="190"></Rectangle>
+        
+        <Rectangle Name="b1t" Style="{StaticResource EyeXGazeAwarePanel}" Fill="Black" Opacity="0" Height="251" Width="91" Canvas.Left="157" Canvas.Top="198"></Rectangle>
+        <Rectangle x:Name="b1a" Style="{StaticResource EyeXGazeAwarePanel}" Fill="Black" Opacity="0" Height="57" Width="160" Canvas.Left="164" Canvas.Top="440"/>
+        <Rectangle x:Name="b2a" Style="{StaticResource EyeXGazeAwarePanel}" Fill="Black" Opacity="0" Height="249" Width="200" Canvas.Left="259" Canvas.Top="133" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="5.325"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="b2b" Style="{StaticResource EyeXGazeAwarePanel}" Fill="Black" Opacity="0" Height="48" Width="67" Canvas.Left="253" Canvas.Top="385"/>
+        <Rectangle x:Name="b3a" Style="{StaticResource EyeXGazeAwarePanel}" Fill="Black" Opacity="0" Height="54" Width="51" Canvas.Left="325" Canvas.Top="387" RenderTransformOrigin="2.326,0.571"/>
+        <Rectangle x:Name="b4a" Style="{StaticResource EyeXGazeAwarePanel}" Fill="Black" Opacity="0" Height="249" Width="51" Canvas.Left="458" Canvas.Top="143" RenderTransformOrigin="2.326,0.571">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="8.794"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="b5a" Style="{StaticResource EyeXGazeAwarePanel}" Fill="Black" Opacity="0" Height="302" Width="98" Canvas.Left="501" Canvas.Top="324" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="76.092"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="b5b" Style="{StaticResource EyeXGazeAwarePanel}" Fill="Black" Opacity="0" Height="67" Width="148" Canvas.Left="295" Canvas.Top="477" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="76.092"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="b6a" Style="{StaticResource EyeXGazeAwarePanel}"  Fill="Black" Opacity="0" Height="38" Width="46" Canvas.Left="497" Canvas.Top="320" RenderTransformOrigin="2.326,0.571"/>
+        <Rectangle x:Name="b7a" Style="{StaticResource EyeXGazeAwarePanel}" Fill="Black" Opacity="0" Height="186" Width="36" Canvas.Left="514" Canvas.Top="150" RenderTransformOrigin="2.326,0.571">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="8.794"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="b8a" Style="{StaticResource EyeXGazeAwarePanel}"  Fill="Black" Opacity="0" Height="77" Width="52" Canvas.Left="402" Canvas.Top="385" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="67.934"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="b8c" Style="{StaticResource EyeXGazeAwarePanel}"  Fill="Black" Opacity="0" Height="99" Width="26" Canvas.Left="505" Canvas.Top="355" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="67.934"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="b8b" Style="{StaticResource EyeXGazeAwarePanel}"  Fill="Black" Opacity="0" Height="33" Width="57" Canvas.Left="547" Canvas.Top="352" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="67.934"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="b9a" Style="{StaticResource EyeXGazeAwarePanel}"  Fill="Black" Opacity="0" Height="99" Width="26" Canvas.Left="495" Canvas.Top="328" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="67.934"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="b10a" Style="{StaticResource EyeXGazeAwarePanel}"  Fill="Black" Opacity="0" Height="165" Width="139" Canvas.Left="590" Canvas.Top="146" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="101.006"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="b10b" Style="{StaticResource EyeXGazeAwarePanel}"  Fill="Black" Opacity="0" Height="43" Width="56" Canvas.Left="552" Canvas.Top="291" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="101.006"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="b10c" Style="{StaticResource EyeXGazeAwarePanel}"  Fill="Black" Opacity="0" Height="29" Width="81" Canvas.Left="663" Canvas.Top="336" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="101.006"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="b11a" Style="{StaticResource EyeXGazeAwarePanel}"  Fill="Black" Opacity="0" Height="90" Width="92" Canvas.Left="596" Canvas.Top="302" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="101.006"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="b12a" Style="{StaticResource EyeXGazeAwarePanel}"  Fill="Black" Opacity="0" Height="40" Width="152" Canvas.Left="703" Canvas.Top="369" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="99.624"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="b13a" Style="{StaticResource EyeXGazeAwarePanel}" Fill="Black" Opacity="0" Height="40" Width="231" Canvas.Left="625" Canvas.Top="343" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="100.592"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
     </Canvas>
 </Window>

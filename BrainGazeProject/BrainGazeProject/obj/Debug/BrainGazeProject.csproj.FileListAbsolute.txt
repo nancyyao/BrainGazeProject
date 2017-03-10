@@ -18,3 +18,5 @@ C:\Users\master\Documents\GitHub\BrainGazeProject\BrainGazeProject\BrainGazeProj
 C:\Users\master\Documents\GitHub\BrainGazeProject\BrainGazeProject\BrainGazeProject\obj\Debug\BrainGazeProject.exe
 C:\Users\master\Documents\GitHub\BrainGazeProject\BrainGazeProject\BrainGazeProject\obj\Debug\BrainGazeProject.pdb
 C:\Users\master\Documents\GitHub\BrainGazeProject\BrainGazeProject\BrainGazeProject\bin\Debug\Tobii.EyeX.Client.dll
+C:\Users\Master\Documents\GitHub\BrainGazeProject\BrainGazeProject\BrainGazeProject\obj\Debug\Window1.baml
+C:\Users\Master\Documents\GitHub\BrainGazeProject\BrainGazeProject\BrainGazeProject\obj\Debug\Window1.g.cs
