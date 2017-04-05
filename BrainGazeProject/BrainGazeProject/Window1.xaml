@@ -1,0 +1,127 @@
+﻿<Window x:Class="BrainGazeProject.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BrainGazeProject"
+        xmlns:eyeX="clr-namespace:EyeXFramework.Wpf;assembly=EyeXFramework"
+        mc:Ignorable="d"
+        Title="Window1" Height="700" Width="1000">
+    <Window.Resources>
+        <Style x:Key="EyeXGazeAwareElement" TargetType="FrameworkElement">
+            <Setter Property="eyeX:Behavior.GazeAware" Value="True" />
+            <Setter Property="eyeX:Behavior.GazeAwareDelay" Value="50" />
+            <EventSetter Event="eyeX:Behavior.HasGazeChanged" Handler="OnHasGazeChanged" />
+        </Style>
+        <Style x:Key="EyeXGazeAwarePanel" BasedOn="{StaticResource EyeXGazeAwareElement}" TargetType="Rectangle"></Style>
+    </Window.Resources>
+    
+    <Canvas>
+        <TextBlock Panel.ZIndex="750" Name="Receive_Status_Text" Foreground="Black" Background="Transparent" Canvas.Right="30" Canvas.Top="30" MaxWidth="266.67" Text="Receiving Data" TextAlignment="Right" FontSize="18" HorizontalAlignment="Center" Visibility="Visible"/>
+        <TextBlock Panel.ZIndex="750" Name="Share_Status_Text" Foreground="Black" Background="Transparent" Canvas.Right="30" Canvas.Top="80" MaxWidth="266.67" Text="Sharing Data" TextAlignment="Right" FontSize="18" HorizontalAlignment="Center" Visibility="Visible"/>
+        <TextBlock Panel.ZIndex="750" Name="Timer" Foreground="Red" Background="Transparent" Canvas.Right="30" Canvas.Top="255" TextAlignment="Right" FontSize="18"/>
+        <TextBlock Name="test" Canvas.Right="20" Canvas.Top="300" FontSize="15"></TextBlock>
+        <Ellipse Name="track0" Visibility="Hidden" Opacity="1" Panel.ZIndex="800" Fill="Purple" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0"></Ellipse>
+        <Ellipse Name="track1" Visibility="Visible" Opacity="1" Panel.ZIndex="800" Fill="Black" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0"></Ellipse>
+        <Line Name="trackLine" Visibility="Hidden" Opacity="1" Panel.ZIndex="800" Stroke="Black" StrokeThickness="1" X1="0" X2="0" Y1="0" Y2="0"></Line>
+        <Ellipse Name="otrack0" Visibility="Hidden" Opacity="1" Panel.ZIndex="800" Fill="Red" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0"></Ellipse>
+        <Ellipse Name="otrack1" Visibility="Hidden" Opacity="1" Panel.ZIndex="800" Fill="Black" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0"></Ellipse>
+        <Line Name="otrackLine" Visibility="Hidden" Opacity="1" Panel.ZIndex="800" Stroke="Black" StrokeThickness="1" X1="0" X2="0" Y1="0" Y2="0"></Line>
+        <Ellipse Name="doubleHighlight" Visibility="Hidden" Opacity=".7" Panel.ZIndex="800" StrokeThickness="5" Stroke="DarkBlue" Width="50" Height="50" Canvas.Left="0" Canvas.Top="0"></Ellipse>
+        <Button x:Name="GazeButton"
+                Panel.ZIndex="800"
+                Content="Turn on Gazepath"
+                Canvas.Right="30"
+                Canvas.Top="130"
+                HorizontalAlignment="Center"
+                Margin="10,10,0,0"
+                VerticalAlignment="Top"
+                Width="75"
+                Click="gazeButton"/>
+        <Button x:Name="FixButton"
+                Panel.ZIndex="800"
+                Content="Turn on Fixation"
+                Canvas.Right="30"
+                Canvas.Top="160"
+                HorizontalAlignment="Center"
+                Margin="10,10,0,0"
+                VerticalAlignment="Top"
+                Visibility="Visible"
+                Click="fixButton"/>
+        <Button x:Name="HighlightButton"
+                Panel.ZIndex="800"
+                Content="Turn on Highlight"
+                Canvas.Right="30"
+                Canvas.Top="190"
+                HorizontalAlignment="Center"
+                Margin="10,10,0,0"
+                VerticalAlignment="Top"
+                Visibility="Visible"
+                Click="highlightButton"/>
+        
+        <Rectangle Name="bg" Height="600" Width="660">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="optictract/OpticTract.png"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="bg_highlight" Visibility="Hidden"  Height="600" Width="660">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="optictract/OpticTractdim.jpg"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="key" Canvas.Left="700" Height="620" Width="200">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="optictract/OpticTractkey.png"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="xlh" Panel.ZIndex="10" Visibility="Hidden" Height="600" Width="660">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="optictract/lefthemifield.jpg"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="xlon" Panel.ZIndex="10" Visibility="Hidden" Height="600" Width="660">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="optictract/leftopticnerve.jpg"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="xlor" Panel.ZIndex="10" Visibility="Hidden" Height="600" Width="660">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="optictract/leftopticradiations.jpg"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="xrh" Panel.ZIndex="10" Visibility="Hidden" Height="600" Width="660">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="optictract/righthemifield.jpg"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="xron" Panel.ZIndex="10" Visibility="Hidden" Height="600" Width="660">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="optictract/rightopticnerve.jpg"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="xror" Panel.ZIndex="10" Visibility="Hidden" Height="600" Width="660">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="optictract/rightopticradiations.jpg"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="xrvc" Panel.ZIndex="10" Visibility="Hidden" Height="600" Width="660">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="optictract/rightvisualcortex.jpg"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="xlvc" Panel.ZIndex="10" Visibility="Hidden" Height="600" Width="660">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="optictract/leftvisualcortex.jpg"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Rectangle Name="lh" Panel.ZIndex="1000" Style="{StaticResource EyeXGazeAwarePanel}" Fill="Black" Opacity="0" Height="186" Width="181" Canvas.Left="112" Canvas.Top="-16"/>
+        <Rectangle x:Name="lon" Panel.ZIndex="1000" Style="{StaticResource EyeXGazeAwarePanel}" Fill="Black" Opacity="0" Height="200" Width="142" Canvas.Left="151" Canvas.Top="170"/>
+        <Rectangle x:Name="lor" Panel.ZIndex="1000" Style="{StaticResource EyeXGazeAwarePanel}" Fill="Black" Opacity="0" Height="254" Width="245" Canvas.Left="-94" Canvas.Top="278"/>
+        <Rectangle x:Name="lvc" Panel.ZIndex="1000" Style="{StaticResource EyeXGazeAwarePanel}" Fill="Black" Opacity="0" Height="193" Width="142" Canvas.Left="151" Canvas.Top="407"/>
+        <Rectangle x:Name="rh" Panel.ZIndex="1000" Style="{StaticResource EyeXGazeAwarePanel}" Fill="Black" Opacity="0" Height="186" Width="200" Canvas.Left="293" Canvas.Top="-16"/>
+        <Rectangle x:Name="ron" Panel.ZIndex="1000" Style="{StaticResource EyeXGazeAwarePanel}" Fill="Black" Opacity="0" Height="200" Width="135" Canvas.Left="293" Canvas.Top="170"/>
+        <Rectangle x:Name="rvc" Panel.ZIndex="1000" Style="{StaticResource EyeXGazeAwarePanel}" Fill="Black" Opacity="0" Height="193" Width="135" Canvas.Left="293" Canvas.Top="407"/>
+        <Rectangle x:Name="ror" Panel.ZIndex="1000" Style="{StaticResource EyeXGazeAwarePanel}" Fill="Black" Opacity="0" Height="247" Width="169" Canvas.Left="427" Canvas.Top="221"/>
+    </Canvas>
+</Window>

@@ -32,6 +32,7 @@ namespace BrainGazeProject
     {
         #region Variables
         //SETUP VARIABLES//
+        int initialImg = 0; //0 for brain, 1 for optic tract diagram
         private static string defaultSenderIP = "169.254.50.139"; //169.254.41.115 A, 169.254.50.139 B
         string compID = "B";
 
@@ -66,6 +67,7 @@ namespace BrainGazeProject
         //settings
         bool gazeSetting = false;
         bool fixSetting = false;
+        bool highlightSetting = false;
 
         //Fixation vis
         Point fixationTrack = new Point(0, 0);
@@ -82,7 +84,7 @@ namespace BrainGazeProject
         int awayTime = 0;
         bool shareStart = true;
         double shareX, shareY;
-
+        
         //Highlight vis
         int oldID = 0;
         int fixTime = 0;
@@ -91,13 +93,26 @@ namespace BrainGazeProject
 
         //Fade vis
         bool fade = false;
+        //images
+        Rectangle img = null;
+        Rectangle rectangle = null;
 
         #endregion
 
         public MainWindow()
         {
             InitializeComponent();
-            setupMainWindow();
+            if (initialImg == 1)
+            {
+                Window1 window1 = new Window1();
+                window1.Show();
+                this.Close();
+            }
+            else
+            {
+                setupMainWindow();
+
+            }
         }
         #region setup
         private void setupMainWindow()
@@ -153,6 +168,7 @@ namespace BrainGazeProject
                 GazeButton.Content = "Turn off Gazepath";
                 otrack0.Visibility = Visibility.Visible;
                 otrack1.Visibility = Visibility.Visible;
+                otrack1.Opacity = 1;
                 otrackLine.Visibility = Visibility.Visible;
             }
             else
@@ -203,6 +219,24 @@ namespace BrainGazeProject
             }
         }
         #endregion
+
+        private void OnHasGazeChanged(object sender, RoutedEventArgs e)
+        {
+            if (highlightSetting)
+            {
+                rectangle = e.Source as Rectangle;
+                if (null == rectangle) { return; }
+                img = FindName((rectangle.Name).Substring(0, (rectangle.Name).Length - 1)) as Rectangle;
+                if (rectangle.GetHasGaze())
+                {
+                    img.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    img.Visibility = Visibility.Hidden;
+                }
+            }
+        }
 
         void update(object sender, EventArgs e)
         {
@@ -457,8 +491,11 @@ namespace BrainGazeProject
         {
             communication_started_Receiver = false;
             communication_started_Sender = false;
-            dispatcherTimer.Stop();
-            eyeXHost.Dispose();
+            if (initialImg == 0)
+            {
+                dispatcherTimer.Stop();
+                eyeXHost.Dispose();
+            }
             try
             {
                 communicateThread_Receiver.Abort();
