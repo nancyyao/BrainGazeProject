@@ -83,6 +83,15 @@ namespace BrainGazeProject
         bool shareStart = true;
         double shareX, shareY;
 
+        //Highlight vis
+        int oldID = 0;
+        int fixTime = 0;
+        Rectangle oldSet = new Rectangle();
+        bool highlight = false;
+
+        //Fade vis
+        bool fade = false;
+
         #endregion
 
         public MainWindow()
@@ -166,6 +175,31 @@ namespace BrainGazeProject
             {
                 FixButton.Content = "Turn on Fixation";
                 doubleHighlight.Visibility = Visibility.Hidden;
+            }
+        }
+        private void highlightButton(object sender, RoutedEventArgs e)
+        {
+            highlight = !highlight;
+            if (highlight)
+            {
+                HighlightButton.Content = "Turn off Highlight";
+            }
+            else {
+                HighlightButton.Content = "Turn on Highlight";
+            }
+        }
+        private void fadeButton(object sender, RoutedEventArgs e)
+        {
+            fade = !fade;
+            if (fade)
+            {
+                otrack1.Visibility = Visibility.Visible;
+                FadeButton.Content = "Turn off Fade";
+            }
+            else
+            {
+                otrack1.Visibility = Visibility.Hidden;
+                FadeButton.Content = "Turn on Fade";
             }
         }
         #endregion
@@ -267,18 +301,73 @@ namespace BrainGazeProject
             }
 
             doubleTrack();
-            highlight();
+            brainHighlight();
+            fadeTrack();
         }
 
-        private void highlight() {
-            b1t.SetGazeAware(true);
-            if (b1t.GetHasGaze())
+        private void brainHighlight() {
+            Rectangle box;
+            double offset;
+            double X1, X2, Y1, Y2;
+            double leneX;
+            double minLeft = 1000;
+            int leftID = -1;
+
+            foreach (UIElement child in canv.Children) {
+                if (child.GetType().Equals(b0.GetType()) && (box = child as Rectangle).Name.Substring(0, 1).Equals("x"))
+                {
+                    Y1 = Canvas.GetTop(box) + box.Height;
+                    Y2 = Canvas.GetTop(box);
+
+                    if (fastTrack.Y > Y2 && fastTrack.Y < Y1)
+                    {
+                        offset = (box.Name.Substring(1, 1).Equals("L")) ? box.Width : 0;
+                        X1 = Canvas.GetLeft(box) + offset;
+                        X1 = Canvas.GetLeft(box) + offset;
+                        X2 = Canvas.GetLeft(box) + box.Width - offset;
+                        leneX = (X1 - X2) / (Y1 - Y2) * (fastTrack.Y - Y2) + X2;
+
+                        if (leneX < fastTrack.X && fastTrack.X - leneX < minLeft)
+                        {
+                            minLeft = fastTrack.X - leneX;
+                            leftID = Convert.ToInt32(box.Name.Substring(2, box.Name.IndexOf("O") - 2));
+                        }
+                    }
+                }
+            }
+            if (leftID == oldID)
             {
-                b1t.Opacity = .5;
+                fixTime++;
             }
             else {
-                b1t.Opacity = 1;
+                fixTime = 0;
             }
+            if (leftID >= 0 && fixTime > 3)
+            {
+                if (highlight)
+                {
+                    Rectangle temp = canv.FindName("b" + leftID.ToString()) as Rectangle;
+                    oldSet.Visibility = Visibility.Hidden;
+                    temp.Visibility = Visibility.Visible;
+                    oldSet = temp;
+                }
+                else {
+                    oldSet.Visibility = Visibility.Hidden;
+                    b0.Visibility = Visibility.Visible;
+                }
+            }
+
+            oldID = leftID;
+        }
+
+        private void fadeTrack() {
+            if (fade) {
+                otrack1.Opacity =otrack1.Opacity*.75 +(1 - distance(fastTrack, otherFastTrack) / 300)*.25;
+            }
+        }
+
+        private double distance(Point p1, Point p2) {
+            return Math.Sqrt(Math.Pow(p1.X - p2.X, 2) + Math.Pow(p1.Y - p2.Y, 2));
         }
 
         #region logData

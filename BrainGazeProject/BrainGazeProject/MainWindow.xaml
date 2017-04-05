@@ -6,33 +6,117 @@
         xmlns:local="clr-namespace:BrainGazeProject"
         xmlns:eyeX="clr-namespace:EyeXFramework.Wpf;assembly=EyeXFramework"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="2000" Width="2000" WindowState="Maximized">
     <Window.Resources>
-        <Style x:Key="EyeXGazeAwareElement" TargetType="FrameworkElement">
+        <Style x:Key="EyeXGazeAwareElement" TargetType="Rectangle">
             <Setter Property="eyeX:Behavior.GazeAware" Value="True" />
-            <Setter Property="eyeX:Behavior.GazeAwareDelay" Value="50" />
-        </Style>
-        
-        <Style x:Key="EyeXGazeAwarePanel" BasedOn="{StaticResource EyeXGazeAwareElement}" TargetType="Rectangle">
-            <Style.Triggers>
-                <Trigger Property="eyeX:Behavior.HasGaze" Value="True">
-                    <Setter Property="Effect">
-                        <Setter.Value>
-                            <DropShadowEffect BlurRadius="35" Color="DarkGoldenrod" ShadowDepth="0"/>
-                        </Setter.Value>
-                    </Setter>
-                </Trigger>
-            </Style.Triggers>
         </Style>
     </Window.Resources>
-    <Canvas>
+    <Canvas Name="canv">
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR1Oa" Width="44" Height="60" Canvas.Left="196" Canvas.Top="212"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR1Ob" Width="30" Height="54" Canvas.Left="172" Canvas.Top="271"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR1Oc" Width="7" Height="57" Canvas.Left="168" Canvas.Top="323"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL1Od" Width="14" Height="57" Canvas.Left="169" Canvas.Top="378"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL1Oe" Width="43" Height="44" Canvas.Left="180" Canvas.Top="432"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL1Of" Width="59" Height="22" Canvas.Left="221" Canvas.Top="474"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL2Oa" Width="14" Height="42" Canvas.Left="240" Canvas.Top="209"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR2Ob" Width="8" Height="37" Canvas.Left="246" Canvas.Top="249"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR2Oc" Width="4" Height="44" Canvas.Left="244" Canvas.Top="285"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL2Od" Width="5" Height="43" Canvas.Left="245" Canvas.Top="328"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL2Oe" Width="14" Height="57" Canvas.Left="249" Canvas.Top="370"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL2Of" Width="25" Height="40" Canvas.Left="261" Canvas.Top="426"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL2Og" Width="42" Height="13" Canvas.Left="284" Canvas.Top="465"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR2Oh" Width="60" Height="10" Canvas.Left="379" Canvas.Top="135"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR2Oi" Width="136" Height="67" Canvas.Left="246" Canvas.Top="142"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL2Oj" Width="24" Height="9" Canvas.Left="347" Canvas.Top="382"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL2Ok" Width="17" Height="32" Canvas.Left="370" Canvas.Top="390"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR3Oa" Width="29" Height="12" Canvas.Left="328" Canvas.Top="383"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR3Ob" Width="10" Height="17" Canvas.Left="321" Canvas.Top="392"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR3Oc" Width="1" Height="10" Canvas.Left="322" Canvas.Top="408"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL3Od" Width="3" Height="11" Canvas.Left="322" Canvas.Top="417"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL3Oe" Width="25" Height="20" Canvas.Left="324" Canvas.Top="427"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL4Oa" Width="4" Height="15" Canvas.Left="456" Canvas.Top="137"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL4Ob" Width="15" Height="34" Canvas.Left="459" Canvas.Top="150"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR4Oc" Width="13" Height="115" Canvas.Left="461" Canvas.Top="183"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR4Od" Width="19" Height="36" Canvas.Left="443" Canvas.Top="297"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR4Oe" Width="4" Height="57" Canvas.Left="440" Canvas.Top="332"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR4Of" Width="35" Height="10" Canvas.Left="461" Canvas.Top="129"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR5Oa" Width="52" Height="44" Canvas.Left="328" Canvas.Top="430"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR5Ob" Width="7" Height="24" Canvas.Left="323" Canvas.Top="472"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL5Oc" Width="12" Height="33" Canvas.Left="323" Canvas.Top="495"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL5Od" Width="36" Height="35" Canvas.Left="334" Canvas.Top="527"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL5Oe" Width="31" Height="13" Canvas.Left="369" Canvas.Top="561"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR5Of" Width="84" Height="37" Canvas.Left="408" Canvas.Top="430"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR5Og" Width="95" Height="40" Canvas.Left="490" Canvas.Top="391"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR5Oh" Width="33" Height="11" Canvas.Left="637" Canvas.Top="391"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR6Oa" Width="21" Height="3" Canvas.Left="513" Canvas.Top="321"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR6Ob" Width="17" Height="13" Canvas.Left="496" Canvas.Top="323"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL6Oc" Width="4" Height="13" Canvas.Left="497" Canvas.Top="335"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL6Od" Width="23" Height="16" Canvas.Left="500" Canvas.Top="347"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR7Oa" Width="14" Height="40" Canvas.Left="516" Canvas.Top="138"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR7Ob" Width="11" Height="78" Canvas.Left="506" Canvas.Top="176"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL7Oc" Width="9" Height="37" Canvas.Left="507" Canvas.Top="253"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR7Od" Width="11" Height="37" Canvas.Left="505" Canvas.Top="289"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR7Oe" Width="28" Height="37" Canvas.Left="470" Canvas.Top="345"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR8Oa" Width="27" Height="10" Canvas.Left="558" Canvas.Top="338"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL8Ob" Width="4" Height="13" Canvas.Left="558" Canvas.Top="347"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR8Oc" Width="6" Height="15" Canvas.Left="556" Canvas.Top="359"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR8Od" Width="13" Height="10" Canvas.Left="544" Canvas.Top="373"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR8Oe" Width="59" Height="20" Canvas.Left="486" Canvas.Top="382"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR8Of" Width="73" Height="44" Canvas.Left="381" Canvas.Top="386"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL8Og" Width="1" Height="18" Canvas.Left="381" Canvas.Top="429"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL8Oh" Width="30" Height="20" Canvas.Left="381" Canvas.Top="446"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR9Oa" Width="20" Height="18" Canvas.Left="530" Canvas.Top="342"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR9Ob" Width="27" Height="14" Canvas.Left="504" Canvas.Top="359"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR9Oc" Width="43" Height="14" Canvas.Left="462" Canvas.Top="372"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL9Od" Width="1" Height="15" Canvas.Left="462" Canvas.Top="383"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL9Oe" Width="25" Height="5" Canvas.Left="462" Canvas.Top="397"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR10Oa" Width="22" Height="34" Canvas.Left="552" Canvas.Top="149"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR10Ob" Width="12" Height="44" Canvas.Left="541" Canvas.Top="182"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR10Oc" Width="6" Height="80" Canvas.Left="536" Canvas.Top="225"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL10Od" Width="16" Height="37" Canvas.Left="535" Canvas.Top="304"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL10Oe" Width="20" Height="4" Canvas.Left="640" Canvas.Top="295"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL10Of" Width="21" Height="18" Canvas.Left="658" Canvas.Top="298"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL10Og" Width="12" Height="25" Canvas.Left="678" Canvas.Top="315"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR10Oh" Width="2" Height="28" Canvas.Left="688" Canvas.Top="340"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL10Oi" Width="20" Height="59" Canvas.Left="586" Canvas.Top="337"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR10Oj" Width="19" Height="29" Canvas.Left="671" Canvas.Top="363"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL10Ok" Width="33" Height="15" Canvas.Left="670" Canvas.Top="390"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR11Oa" Width="29" Height="13" Canvas.Left="610" Canvas.Top="295"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR11Ob" Width="12" Height="22" Canvas.Left="599" Canvas.Top="307"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR11Oc" Width="1" Height="31" Canvas.Left="599" Canvas.Top="328"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL11Od" Width="6" Height="22" Canvas.Left="599" Canvas.Top="358"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL11Oe" Width="16" Height="18" Canvas.Left="604" Canvas.Top="379"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL11Of" Width="17" Height="6" Canvas.Left="619" Canvas.Top="396"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR12Oa" Width="23" Height="21" Canvas.Left="764" Canvas.Top="323"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR12Ob" Width="7" Height="20" Canvas.Left="758" Canvas.Top="343"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL12Oc" Width="1" Height="16" Canvas.Left="758" Canvas.Top="362"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR12Od" Width="5" Height="11" Canvas.Left="754" Canvas.Top="377"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR12Oe" Width="1" Height="36" Canvas.Left="754" Canvas.Top="387"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL12Of" Width="9" Height="17" Canvas.Left="754" Canvas.Top="422"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL12Og" Width="1" Height="7" Canvas.Left="762" Canvas.Top="438"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR12Oh" Width="14" Height="22" Canvas.Left="749" Canvas.Top="444"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR12Oi" Width="23" Height="19" Canvas.Left="727" Canvas.Top="465"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR13Oa" Width="52" Height="236" Canvas.Left="697" Canvas.Top="248"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL0Oa" Width="91" Height="24" Canvas.Left="496" Canvas.Top="128"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL0Ob" Width="80" Height="28" Canvas.Left="585" Canvas.Top="151"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL0Oc" Width="67" Height="49" Canvas.Left="663" Canvas.Top="177"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL0Od" Width="36" Height="42" Canvas.Left="728" Canvas.Top="224"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL0Oe" Width="29" Height="73" Canvas.Left="762" Canvas.Top="265"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xL0Of" Width="5" Height="61" Canvas.Left="789" Canvas.Top="335"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR0Og" Width="16" Height="66" Canvas.Left="777" Canvas.Top="394"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR0Oh" Width="45" Height="35" Canvas.Left="733" Canvas.Top="458"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR0Oi" Width="166" Height="75" Canvas.Left="487" Canvas.Top="487"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR0Oj" Width="89" Height="18" Canvas.Left="400" Canvas.Top="560"></Rectangle>
+        <Rectangle Panel.ZIndex="0" Fill="Black" Opacity=".5" Name="xR0Ok" Width="88" Height="948" Canvas.Left="-108" Canvas.Top="-46"></Rectangle>
+
         <TextBlock Panel.ZIndex="750" Name="Receive_Status_Text" Foreground="Black" Background="Transparent" Canvas.Right="30" Canvas.Top="30" MaxWidth="266.67" Text="Receiving Data" TextAlignment="Right" FontSize="18" HorizontalAlignment="Center" Visibility="Visible"/>
         <TextBlock Panel.ZIndex="750" Name="Share_Status_Text" Foreground="Black" Background="Transparent" Canvas.Right="30" Canvas.Top="80" MaxWidth="266.67" Text="Sharing Data" TextAlignment="Right" FontSize="18" HorizontalAlignment="Center" Visibility="Visible"/>
         <TextBlock Panel.ZIndex="750" Name="Timer" Foreground="Red" Background="Transparent" Canvas.Right="30" Canvas.Top="255" TextAlignment="Right" FontSize="18"/>
         <TextBlock Panel.ZIndex="800" Foreground="Red" Background="Transparent" Canvas.Right="30" Canvas.Bottom="40" Text="Image 1/4" TextAlignment="Right" FontSize="40" Visibility="Visible"/>
         <TextBlock Name="test" Canvas.Right="20" Canvas.Top="300" FontSize="15"></TextBlock>
         <Ellipse Name="track0" Visibility="Hidden" Opacity="1" Panel.ZIndex="800" Fill="Purple" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0"></Ellipse>
-        <Ellipse Name="track1" Visibility="Visible" Opacity="1" Panel.ZIndex="800" Fill="Black" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0"></Ellipse>
+        <Ellipse Name="track1" Visibility="Hidden" Opacity="1" Panel.ZIndex="800" Fill="Black" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0"></Ellipse>
         <Line Name="trackLine" Visibility="Hidden" Opacity="1" Panel.ZIndex="800" Stroke="Black" StrokeThickness="1" X1="0" X2="0" Y1="0" Y2="0"></Line>
         <Ellipse Name="otrack0" Visibility="Hidden" Opacity="1" Panel.ZIndex="800" Fill="Red" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0"></Ellipse>
         <Ellipse Name="otrack1" Visibility="Hidden" Opacity="1" Panel.ZIndex="800" Fill="Black" Width="10" Height="10" Canvas.Left="0" Canvas.Top="0"></Ellipse>
@@ -48,17 +132,37 @@
                 VerticalAlignment="Top"
                 Width="75"
                 Click="gazeButton"/>
-        <Button x:Name="FixButton"
+        <Button x:Name="HighlightButton"
                 Panel.ZIndex="800"
-                Content="Turn on Fixation"
+                Content="Turn on Highlight"
                 Canvas.Right="30"
                 Canvas.Top="160"
                 HorizontalAlignment="Center"
                 Margin="10,10,0,0"
                 VerticalAlignment="Top"
                 Visibility="Visible"
+                Click="highlightButton"/>
+        <Button x:Name="FadeButton"
+                Panel.ZIndex="800"
+                Content="Turn on Fade"
+                Canvas.Right="30"
+                Canvas.Top="190"
+                HorizontalAlignment="Center"
+                Margin="10,10,0,0"
+                VerticalAlignment="Top"
+                Visibility="Visible"
+                Click="fadeButton"/>
+        <Button x:Name="FixButton"
+                Panel.ZIndex="800"
+                Content="Turn on Fixation"
+                Canvas.Right="30"
+                Canvas.Top="220"
+                HorizontalAlignment="Center"
+                Margin="10,10,0,0"
+                VerticalAlignment="Top"
+                Visibility="Visible"
                 Click="fixButton"/>
-        <Rectangle Name="bg" Height="750" Width="1000">
+        <Rectangle Name="b0" Height="750" Width="1000">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="Brain.png"></ImageBrush>
             </Rectangle.Fill>
@@ -128,6 +232,5 @@
                 <ImageBrush ImageSource="Brain13.jpg"></ImageBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle Name="b1t" Style="{StaticResource EyeXGazeAwarePanel}" Fill="Black" Height="318" Width="356" Canvas.Left="271" Canvas.Top="190"></Rectangle>
     </Canvas>
 </Window>
