@@ -376,7 +376,7 @@ namespace BrainGazeProject
             else {
                 fixTime = 0;
             }
-            if (leftID >= 0 && fixTime > 3)
+            if (leftID >= 0 && fixTime > 2)
             {
                 if (highlight)
                 {

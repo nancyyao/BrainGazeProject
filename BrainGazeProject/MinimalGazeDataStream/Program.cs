@@ -17,7 +17,7 @@ namespace MinimalGazeDataStream
             string time;
             int recordEveryXTime = 15; //don't need to record every point...
             int recordEveryXTimeCounter = 0;
-            string path = "C:/Users/Master/Documents/GitHub/TobiiEyeTrackingProject/datastreams/" + "A_"+DateTime.Now.ToString("MM-dd_hh-mm") + ".txt";
+            string path = "C:/Users/Master/Documents/braingazelog/" + "A_"+DateTime.Now.ToString("MM-dd_hh-mm") + ".txt";
             using (var eyeXHost = new EyeXHost())
             {
                 // Create a data stream: lightly filtered gaze point data.

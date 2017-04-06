@@ -22,6 +22,12 @@ namespace BrainGazeProject
             _eyeXHost = new WpfEyeXHost();
             _eyeXHost.Start();
         }
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            
+        }
+
         protected override void OnExit(ExitEventArgs e)
         {
             base.OnExit(e);
